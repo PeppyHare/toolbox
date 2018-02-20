@@ -1,0 +1,5 @@
+# These are the python requirements for your Ansible Container builder.
+# You do not need to include Ansible itself in this file.
+django==1.11
+Flask==0.12.2
+gunicorn==19.7.1
