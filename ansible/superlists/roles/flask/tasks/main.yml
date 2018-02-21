@@ -10,6 +10,10 @@
     name: python,python-dev,py-pip,build-base
     state: present
     update_cache: yes
+- name: Install shadow package for passwd utilities
+  apk:
+    name: shadow
+    state: present
 - name: Create flask user
   user:
     name: flask

@@ -1,6 +1,8 @@
 # From ansible galaxy
 - src: geerlingguy.docker
+- src: geerlingguy.ntp
 
 # From github
 - src: https://github.com/PeppyHare/ansible-fish
+- src: https://github.com/PeppyHare/ansible-role-ansible-container-controller
 - src: https://github.com/openstack/ansible-hardening

@@ -5,7 +5,8 @@
     security_enable_firewalld: no
     security_sshd_disallow_empty_password: no
   roles:
-    - { role: ansible-fish, fish_users: ['ubuntu'], fish_completions: ['pip', 'pip2', 'pip3', 'kill'] }
-    - geerlingguy.docker
-    - geerlingguy.ntp
-    - ansible-hardening
+    # - { role: ansible-fish, fish_users: ['ubuntu'], fish_completions: ['pip', 'pip2', 'pip3', 'kill'] }
+    # - geerlingguy.docker
+    # - geerlingguy.ntp
+    # - ansible-hardening
+    - ansible-role-ansible-container-controller
