@@ -1,0 +1,6 @@
+# From ansible galaxy
+- src: geerlingguy.docker
+
+# From github
+- src: https://github.com/PeppyHare/ansible-fish
+- src: https://github.com/openstack/ansible-hardening

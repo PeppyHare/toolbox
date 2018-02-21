@@ -1,0 +1,5 @@
+aws:
+  hosts:
+    ec2-54-186-167-26.us-west-2.compute.amazonaws.com
+  vars:
+    ansible_user: ubuntu
