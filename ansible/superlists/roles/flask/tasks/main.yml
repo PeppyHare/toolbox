@@ -13,7 +13,7 @@
 - name: add testing repository to apk lists
   lineinfile:
     path: /etc/apk/repositories
-    line: 'http://nl.alpinelinux.org/alpine/edge/testing'
+    line: 'http://dl-2.alpinelinux.org/alpine/edge/community/'
     state: present
 - name: Install shadow package for passwd utilities
   apk:
