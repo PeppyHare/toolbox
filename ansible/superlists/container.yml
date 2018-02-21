@@ -56,7 +56,7 @@ services:
   flask:
     from: alpine:3.5
     roles:
-      - flask
+      - ansible-role-flask
     entrypoint: /usr/bin/dumb-init
     ports:
       - 4000:4000
