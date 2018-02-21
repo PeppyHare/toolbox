@@ -6,7 +6,7 @@ settings:
     # Python runtime for building your target containers. It should be derived
     # from the same distribution as you're building your target containers with.
     # base: centos:7
-    base: alpine:3.5
+    base: python:3.6-alpine3.4
     # roles_path: "/app/roles/"
     # volumes:      # Provide a list of volumes to mount
     # environment:  # List or mapping of environment variables
