@@ -7,7 +7,7 @@
     validate_certs: no
 - name: Install python and pip
   apk:
-    name: python-pip
+    name: python,py-pip
     state: present
     update_cache: yes
 - name: add testing repository to apk lists
