@@ -72,6 +72,87 @@
 				"buffer_size": 18294,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "ansible/superlists/container.yml",
+			"settings":
+			{
+				"buffer_size": 2499,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ansible/superlists/requirements.yml",
+			"settings":
+			{
+				"buffer_size": 352,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "---\n- name: Install dumb init\n  get_url:\n    dest: /usr/bin/dumb-init\n    url: https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64\n    mode: 0775\n    validate_certs: no\n- name: Install python and pip\n  apk:\n    name: python-pip\n    state: present\n    update_cache: yes\n- name: add testing repository to apk lists\n  lineinfile:\n    path: /etc/apk/repositories\n    line: 'http://dl-2.alpinelinux.org/alpine/edge/community/'\n    state: present\n- name: Install shadow package for passwd utilities\n  apk:\n    name: shadow\n    state: present\n- name: Create flask user\n  user:\n    name: flask\n    uid: 1000\n    group: root\n    state: present\n    createhome: yes\n    home: \"/app\"\n- name: Copy source into container\n  synchronize:\n    src: \"/src/\"\n    dest: \"/app\"\n  remote_user: flask\n- name: Install Python dependencies\n  pip:\n    requirements: /app/requirements.txt\n  ",
+			"file": "ansible/superlists/roles/flask/tasks/main.yml",
+			"file_size": 892,
+			"file_write_time": 131637150826667692,
+			"settings":
+			{
+				"buffer_size": 891,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Flask==0.12.2\ngunicorn==19.7.1",
+			"file": "ansible/superlists/roles/flask/requirements.txt",
+			"file_size": 31,
+			"file_write_time": 131637137647713905,
+			"settings":
+			{
+				"buffer_size": 30,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ansible/awsvm.yml",
+			"settings":
+			{
+				"buffer_size": 359,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ansible/inventory/hosts",
+			"settings":
+			{
+				"buffer_size": 150,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ansible/install_roles.yml",
+			"settings":
+			{
+				"buffer_size": 267,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ansible/superlists/helloworld.py",
+			"settings":
+			{
+				"buffer_size": 110,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ansible/superlists/meta.yml",
+			"settings":
+			{
+				"buffer_size": 1181,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -534,10 +615,22 @@
 	"expanded_folders":
 	[
 		"/C/Users/bluhm/GitHub/toolbox",
-		"/C/Users/bluhm/GitHub/toolbox/ansible"
+		"/C/Users/bluhm/GitHub/toolbox/ansible",
+		"/C/Users/bluhm/GitHub/toolbox/ansible/superlists",
+		"/C/Users/bluhm/GitHub/toolbox/ansible/superlists/roles",
+		"/C/Users/bluhm/GitHub/toolbox/ansible/superlists/roles/flask",
+		"/C/Users/bluhm/GitHub/toolbox/ansible/superlists/roles/flask/templates"
 	],
 	"file_history":
 	[
+		"/C/Users/bluhm/GitHub/toolbox/ansible/install_roles.yml",
+		"/C/Users/bluhm/GitHub/toolbox/.gitignore",
+		"/C/Users/bluhm/GitHub/toolbox/ansible/requirements.txt",
+		"/C/Users/bluhm/GitHub/toolbox/ansible/superlists/ansible-requirements.txt",
+		"/C/Users/bluhm/GitHub/toolbox/ansible/superlists/ansible.cfg",
+		"/C/Users/bluhm/GitHub/toolbox/ansible/inventory/hosts",
+		"/C/Users/bluhm/GitHub/toolbox/ansible/superlists/container.yml",
+		"/C/Users/bluhm/GitHub/toolbox/ansible/roles.txt",
 		"/C/Users/bluhm/Dropbox/Resume/resJan2014.tex",
 		"/C/Users/bluhm/Dropbox/Resume/bluhmApr2014Extron.tex",
 		"/C/Users/bluhm/Dropbox/Resume/bluhme_2017.tex",
@@ -657,15 +750,7 @@
 		"/Users/evan/Dropbox/Extended Fancy CV (Carmine Benedetto)/friggeri-cv.cls",
 		"/Users/evan/Dropbox/Extended Fancy CV (Carmine Benedetto)/resume.tex",
 		"/Users/evan/Dropbox/Extended Fancy CV (Carmine Benedetto)/cv.tex",
-		"/Users/evan/Dropbox/Resume/bluhmNov2015.synctex.gz",
-		"/Users/evan/Dropbox/Resume/res.cls",
-		"/Users/evan/Dropbox/Fancy CV/cv.tex",
-		"/Users/evan/Box Sync/Enigma/keyring.txt",
-		"/Users/evan/Dropbox/pw.txt",
-		"/Users/evan/Box Sync/TaaS/Jenkins as a Service/jenkins_host_list",
-		"/Users/evan/Desktop/rpmpkgs.list",
-		"/Users/evan/ucd7pkgs",
-		"/Users/evan/ucd8pkgs"
+		"/Users/evan/Dropbox/Resume/bluhmNov2015.synctex.gz"
 	],
 	"find":
 	{
@@ -705,7 +790,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1543,7 +1628,7 @@
 						"translation.y": 24197.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -1559,8 +1644,8 @@
 						"selection":
 						[
 							[
-								1069,
-								1069
+								1015,
+								1015
 							]
 						],
 						"settings":
@@ -1573,7 +1658,263 @@
 						"translation.y": 395.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "ansible/superlists/container.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2499,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2177,
+								2177
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 552.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "ansible/superlists/requirements.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 352,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								83,
+								125
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "ansible/superlists/roles/flask/tasks/main.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 891,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								228,
+								228
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "ansible/superlists/roles/flask/requirements.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								30,
+								30
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "ansible/awsvm.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 359,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								310,
+								310
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "ansible/inventory/hosts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								149,
+								149
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "ansible/install_roles.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 267,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								212,
+								212
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "ansible/superlists/helloworld.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 110,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								110,
+								110
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "ansible/superlists/meta.yml",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1181,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1647,6 +1988,22 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"awsvm",
+				"ansible\\awsvm.yml"
+			],
+			[
+				"requirements",
+				"ansible\\superlists\\requirements.yml"
+			],
+			[
+				"hosts",
+				"ansible\\inventory\\hosts"
+			],
+			[
+				"container.yml",
+				"ansible\\superlists\\container.yml"
+			],
 			[
 				"setin",
 				"superlists\\settings.py"
@@ -2076,10 +2433,6 @@
 				"gen\\keep.txt"
 			],
 			[
-				"hosts",
-				"etc\\hosts"
-			],
-			[
 				"rig",
 				"newhire\\new_hire_ring.txt"
 			],
@@ -2146,18 +2499,6 @@
 			[
 				"ididt",
 				"gen\\i_did_this.txt"
-			],
-			[
-				"ididti",
-				"gen\\i_did_this.txt"
-			],
-			[
-				"pb",
-				"gen\\new_pbc.txt"
-			],
-			[
-				"pbc",
-				"gen\\new_pbc.txt"
 			]
 		],
 		"width": 0.0
